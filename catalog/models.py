@@ -24,4 +24,3 @@ class Product(models.Model):
     price = models.IntegerField(verbose_name='цена за покупку')
     creation_date = models.DateTimeField(verbose_name='дата создания')
     last_change_date = models.DateTimeField(verbose_name='дата последнего изменения', **NULLABLE)
-    pass

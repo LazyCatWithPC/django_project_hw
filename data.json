@@ -1,0 +1,136 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "Категория_1",
+      "description": "Тестовая категория 1"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Категория_2",
+      "description": "Тестовая категория 2"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "name": "Категория_3",
+      "description": "Тестовая категория 3"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+      "name": "Category 4",
+      "description": ""
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 5,
+    "fields": {
+      "name": "Category 5",
+      "description": "Shell category 5"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 6,
+    "fields": {
+      "name": "Category 6",
+      "description": "Shell category 6"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 7,
+    "fields": {
+      "name": "Category 7",
+      "description": ""
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "name": "Товар_1",
+      "description": "Тестовый товар 1",
+      "preview": "",
+      "category": 1,
+      "price": 100,
+      "creation_date": "2023-12-24T15:15:58Z",
+      "last_change_date": null
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "name": "Товар_2",
+      "description": "Тестовый товар 2",
+      "preview": "",
+      "category": 2,
+      "price": 200,
+      "creation_date": "2023-12-24T15:16:40Z",
+      "last_change_date": null
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "name": "Товар_3",
+      "description": "Тестовый товар 3",
+      "preview": "",
+      "category": 3,
+      "price": 300,
+      "creation_date": "2023-12-21T15:17:06Z",
+      "last_change_date": "2023-12-23T15:17:14Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+      "name": "Товар_4",
+      "description": "Тестовый товар 4",
+      "preview": "",
+      "category": 1,
+      "price": 400,
+      "creation_date": "2023-12-24T15:17:51Z",
+      "last_change_date": "2023-12-24T15:17:53Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+      "name": "Товар_5",
+      "description": "Тестовый товар 5",
+      "preview": "",
+      "category": 2,
+      "price": 500,
+      "creation_date": "2023-12-24T15:18:23Z",
+      "last_change_date": null
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+      "name": "Товар_6",
+      "description": "Тестовый товар 6",
+      "preview": "",
+      "category": 3,
+      "price": 600,
+      "creation_date": "2023-12-24T15:18:46Z",
+      "last_change_date": null
+    }
+  }
+]

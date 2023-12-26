@@ -24,3 +24,11 @@ class Product(models.Model):
     price = models.IntegerField(verbose_name='цена за покупку')
     creation_date = models.DateTimeField(verbose_name='дата создания')
     last_change_date = models.DateTimeField(verbose_name='дата последнего изменения', **NULLABLE)
+
+    def __str__(self):
+        return f'{self.name}'
+
+    class Meta:
+        verbose_name = 'Товар'
+        verbose_name_plural = 'Товары'
+        ordering = ('id',)

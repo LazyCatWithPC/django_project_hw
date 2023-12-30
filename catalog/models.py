@@ -42,3 +42,10 @@ class Blog(models.Model):
     creation_at = models.DateField(verbose_name='Дата публикации')
     publication = models.BooleanField(default=True, verbose_name='Признак публикации')
     number_views = models.IntegerField(default=0, verbose_name='Количество просмотров', **NULLABLE)
+
+    def __str__(self):
+        return f'{self.name}'
+
+    class Meta:
+        verbose_name = 'Блог'
+        verbose_name_plural = 'Блоги'

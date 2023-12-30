@@ -1,0 +1,45 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Skyblog</h1>
+          <p class="lead text-muted">Здесь вы можете прочитать блоги наших продавцов, клиентов, и других неравнодушных личностей.</p>
+          <p>
+            <a href="/blogs/create/" class="btn btn-primary my-2">Создать блог</a>
+            <a href="#" class="btn btn-primary my-2">Другая кнопка</a>
+            <a href="#" class="btn btn-primary my-2">Ещё одна кнопка</a>
+            <a href="#" class="btn btn-primary my-2">Кнопка?</a>
+          </p>
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">
+              {% for object in object_list %}
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                  <p class="card-text">{{ object }}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a type="button" href="{% url 'catalog:blog_view' object.pk %}" class="btn btn-sm btn-outline-secondary">View</a>
+                      <a type="button" href="{% url 'catalog:blog_update' object.pk %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                      <a type="button" href="{% url 'catalog:blog_delete' object.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                    </div>
+                    <small class="text-muted">{{ object.creation_at }}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+              {% endfor %}
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+{% endblock %}

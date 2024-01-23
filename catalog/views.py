@@ -1,7 +1,7 @@
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, TemplateView, CreateView, DetailView, UpdateView, DeleteView
 from pytils.translit import slugify
-from catalog.models import Product, Blog
+from catalog.models import Blog
 
 
 class HomeView(TemplateView):
@@ -10,11 +10,6 @@ class HomeView(TemplateView):
 
 class ContactsView(TemplateView):
     template_name = 'catalog/contacts.html'
-
-
-class ProductsView(ListView):
-    model = Product
-    template_name = 'catalog/products.html'
 
 
 class BlogCreateView(CreateView):

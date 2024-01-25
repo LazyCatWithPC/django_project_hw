@@ -25,9 +25,8 @@ class Product(models.Model):
     creation_date = models.DateTimeField(verbose_name='дата создания')
     last_change_date = models.DateTimeField(verbose_name='дата последнего изменения', **NULLABLE)
 
-    active_version_name = models.CharField(verbose_name='имя активной версии', **NULLABLE)
+    active_version_name = models.CharField(verbose_name='имя активной версии', max_length=50, **NULLABLE)
     active_version_number = models.IntegerField(verbose_name='номер активной версии', **NULLABLE)
-
 
     def __str__(self):
         return f'{self.name}'

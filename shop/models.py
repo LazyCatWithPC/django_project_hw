@@ -50,4 +50,3 @@ class Version(models.Model):
         verbose_name = 'Версия'
         verbose_name_plural = 'Версии'
         ordering = ('id',)
-

@@ -28,7 +28,7 @@ class ProductForm(forms.ModelForm):
         cleaned_data = self.cleaned_data['description']
 
         for word in block_words:
-            if word.lower() in cleaned_data.lower():
+            if word in cleaned_data.lower():
                 raise forms.ValidationError("Недопустимое описание.")
 
         return cleaned_data

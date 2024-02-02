@@ -1,6 +1,7 @@
 {% extends 'shop/base.html' %}
 
 {% block content %}
+{% if user.is_authenticated %}
 <div class="col-12">
     <form method="post" enctype="multipart/form-data">
         <div class="row">
@@ -23,5 +24,8 @@
         </div>
     </form>
 </div>
+{% else %}
+    {% include 'shop/includes/inc_not_authorised.html' %}
+{% endif %}
 
 {% endblock %}

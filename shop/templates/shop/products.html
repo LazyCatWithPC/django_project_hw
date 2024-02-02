@@ -35,11 +35,11 @@
                         <li><a href="/products" class="text-white">Каталог</a></li>
                         <li><a href="/contacts" class="text-white">Контакты</a></li>
                         {% if user.is_authenticated %}
-                            <li><a href="{% url 'users:logout' %}" class="text-white">Выйти</a></li>
-                            <li><a href="{% url 'users:profile' %}" class="text-white">Профиль</a></li>
+                        <li><a href="{% url 'users:logout' %}" class="text-white">Выйти</a></li>
+                        <li><a href="{% url 'users:profile' %}" class="text-white">Профиль</a></li>
                         {% else %}
-                            <li><a href="{% url 'users:login' %}" class="text-white">Войти</a></li>
-                            <li><a href="{% url 'users:register' %}" class="text-white">Регистрация</a></li>
+                        <li><a href="{% url 'users:login' %}" class="text-white">Войти</a></li>
+                        <li><a href="{% url 'users:register' %}" class="text-white">Регистрация</a></li>
                         {% endif %}
                     </ul>
                 </div>
@@ -63,56 +63,59 @@
         </div>
     </div>
 </header>
+{% if user.is_authenticated %}
+    <main role="main">
 
-<main role="main">
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">Skystore</h1>
+                <p class="lead text-muted">Здесь вы можете приобрести наши товары</p>
+                <p>
+                    <a href="{% url 'shop:products_create' %}" class="btn btn-primary my-2">Создать товар</a>
+                    <a href="/" class="btn btn-secondary my-2">Вернуться на главную</a>
+                </p>
+            </div>
+        </section>
 
-    <section class="jumbotron text-center">
-        <div class="container">
-            <h1 class="jumbotron-heading">Skystore</h1>
-            <p class="lead text-muted">Здесь вы можете приобрести наши товары</p>
-            <p>
-                <a href="{% url 'shop:products_create' %}" class="btn btn-primary my-2">Создать товар</a>
-                <a href="/" class="btn btn-secondary my-2">Вернуться на главную</a>
-            </p>
-        </div>
-    </section>
+        <div class="album py-5 bg-light">
+            <div class="container">
 
-    <div class="album py-5 bg-light">
-        <div class="container">
-
-            <div class="row">
-                {% for object in object_list %}
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                             src="/media/{{ object.preview }}"
-                             alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">{{ object }}</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <a type="button" href="{% url 'shop:products_view' object.pk %}"
-                                       class="btn btn-sm btn-outline-secondary">View</a>
-                                    <a type="button" href="{% url 'shop:products_update' object.pk %}"
-                                       class="btn btn-sm btn-outline-secondary">Edit</a>
-                                    <a type="button" href="{% url 'shop:products_delete' object.pk %}"
-                                       class="btn btn-sm btn-outline-danger">Delete</a>
+                <div class="row">
+                    {% for object in object_list %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top"
+                                src="/media/{{ object.preview }}"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">{{ object }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a type="button" href="{% url 'shop:products_view' object.pk %}"
+                                            class="btn btn-sm btn-outline-secondary">View</a>
+                                        <a type="button" href="{% url 'shop:products_update' object.pk %}"
+                                            class="btn btn-sm btn-outline-secondary">Edit</a>
+                                        <a type="button" href="{% url 'shop:products_delete' object.pk %}"
+                                            class="btn btn-sm btn-outline-danger">Delete</a>
+                                    </div>
+                                    <small class="text-muted">{{ object.creation_date }}</small>
                                 </div>
-                                <small class="text-muted">{{ object.creation_date }}</small>
+                            </div>
+                            <div class="card-bottom">
+                                <small class="text-muted">Версия товара: {{ object.active_version_number }}</small>
+                                <small class="text-muted">Название версии: {{ object.active_version_name }}</small>
                             </div>
                         </div>
-                        <div class="card-bottom">
-                            <small class="text-muted">Версия товара: {{ object.active_version_number }}</small>
-                            <small class="text-muted">Название версии: {{ object.active_version_name }}</small>
-                        </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
-    </div>
 
-</main>
+    </main>
+{% else %}
+    {% include 'shop/includes/inc_not_authorised.html' %}
+{% endif %}
 
 <footer class="text-muted">
     <div class="container">

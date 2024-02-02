@@ -1,5 +1,6 @@
 {% extends 'catalog/base.html' %}
 {% block content %}
+{% if user.is_authenticated %}
 <main role="main">
 
       <section class="jumbotron text-center">
@@ -37,7 +38,9 @@
           </div>
         </div>
       </div>
-
     </main>
+{% else %}
+    {% include 'shop/includes/inc_not_authorised.html' %}
+{% endif %}
 
 {% endblock %}

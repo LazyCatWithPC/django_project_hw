@@ -1,6 +1,7 @@
 {% extends 'shop/base.html' %}
 
 {% block content %}
+{% if user.is_authenticated %}
 <div class="col-12">
     <div class="row">
         <div class="col-6">
@@ -24,5 +25,7 @@
         </div>
     </div>
 </div>
-
+{% else %}
+    {% include 'shop/includes/inc_not_authorised.html' %}
+{% endif %}
 {% endblock %}

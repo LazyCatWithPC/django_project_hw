@@ -1,6 +1,7 @@
 {% extends 'catalog/base.html' %}
 
 {% block content %}
+{% if user.is_authenticated %}
 <div class="container">
     <div class="row text-start">
         <div class="col-lg-9 col-md-6 col-sm-12">
@@ -51,4 +52,7 @@
         </div>
     </div>
 </div>
+{% else %}
+    {% include 'shop/includes/inc_not_authorised.html' %}
+{% endif %}
 {% endblock %}

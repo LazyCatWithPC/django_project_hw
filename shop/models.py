@@ -1,5 +1,7 @@
 from django.db import models
 
+from config import settings
+
 NULLABLE = {'blank': True, 'null': True}
 
 
@@ -27,6 +29,8 @@ class Product(models.Model):
 
     active_version_name = models.CharField(verbose_name='имя активной версии', max_length=50, **NULLABLE)
     active_version_number = models.IntegerField(verbose_name='номер активной версии', **NULLABLE)
+
+    creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, verbose_name='создатель', **NULLABLE)
 
     def __str__(self):
         return f'{self.name}'
